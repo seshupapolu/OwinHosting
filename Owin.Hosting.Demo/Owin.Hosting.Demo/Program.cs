@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Owin.Hosting;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,13 @@ namespace Owin.Hosting.Demo
     {
         static void Main(string[] args)
         {
+
+            using (WebApp.Start<Startup>("http://localhost:12345"))
+            {
+                Console.WriteLine("Listening On Port:12345");
+                Console.WriteLine("Please enter to stop");
+                Console.ReadLine();
+            }
 
         }
     }
